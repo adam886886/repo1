@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="mb-4">Macro Future Outlook</h1>
+<div class="list-group">
+  {% for m in macro_data %}
+    <div class="list-group-item">
+      <strong>{{ m['reference_date'] }}</strong> – {{ m['country_code'] }} – {{ m['event_name'] }}<br>
+      <small>Latest={{ m['latest_value'] }}, Expected={{ m['expected_value'] }}, Previous={{ m['previous_value'] }}</small>
+    </div>
+  {% endfor %}
+</div>
+<a href="{{ url_for('index') }}" class="btn btn-secondary mt-4">← Back</a>
+{% endblock %}
