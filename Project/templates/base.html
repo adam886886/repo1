@@ -1,24 +1,32 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - Geopolitical Dashboard</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Geopolitical Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 <nav>
-  <h1>Geopolitical Dashboard</h1>
-  <ul>
-    {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    {% else %}
-      <li><a href="{{ url_for('auth.register') }}">Register</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
-    {% endif %}
-  </ul>
+{% if g.user %}
+<span>Welcome, {{ g.user.username }}!</span>
+<a href="{{ url_for('auth.logout') }}">Logout</a>
+{% else %}
+<a href="{{ url_for('auth.login') }}">Login</a>
+<a href="{{ url_for('auth.register') }}">Register</a>
+{% endif %}
 </nav>
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
+<hr>
+<section>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+{% for message in messages %}
+<li>{{ message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% block content %}{% endblock %}
 </section>
+</body>
+</html>

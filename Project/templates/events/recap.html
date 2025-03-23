@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="mb-4">Last Week's Macro Recap</h1>
+<div class="list-group">
+  {% for r in recap_data %}
+    <div class="list-group-item">
+      <strong>{{ r['date'] }} {{ r['time'] }}</strong> – {{ r['country'] }} – {{ r['event'] }}<br>
+      <small>Actual={{ r['actual'] }}, Expected={{ r['expected'] }}, Previous={{ r['previous'] }}</small>
+    </div>
+  {% endfor %}
+</div>
+<a href="{{ url_for('index') }}" class="btn btn-secondary mt-4">← Back</a>
+{% endblock %}
