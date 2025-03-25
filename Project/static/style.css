@@ -1,23 +1,28 @@
-html { font-family: sans-serif; background: white ; padding: 1rem; }
-body {margin: 0 auto; background: white; }
-h1 { font-family: sans-serif; color: #000000; margin: 1rem 0; }
-.register-title { text-align: center; }
-.login-title { text-align: center; }
-.login-link { text-align: center; }
-a { color: #000000; }
-hr { border: none; border-top: 1px solid rgb(255, 255, 255); }
-nav { background: white; display: flex; align-items: center; padding: 0 0.5rem; border-bottom: 2px solid #ddd;}
-nav h1 { flex: auto; margin: 0; }
-nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
-nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
-nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
+/* 默认状态：四个菜单项底部无边框 */
+.menu-link {
+    color: rgba(0, 0, 0, 0.7); /* 文字颜色稍微深一点 */
+    text-decoration: none;
+    border-bottom: .25rem solid transparent; /* 默认无边框 */
 
-.flash { margin: 1em 0; padding: 1em; background: white; border: 1px solid black; }
-.content:last-child { margin-bottom: 0; }
-.content form { width: 400px; margin: 0 auto; display: flex; flex-direction: column; }
-.content label { font-weight: bold; margin-bottom: 0.5em; }
-.content input {height: 40px; margin-bottom: 1em; }
-.content textarea { margin-bottom: 1em; }
-.content textarea { min-height: 12em; resize: vertical; }
-input.danger { color: #cc2f2e; }
-input[type=submit] { height:40px; background-color: black; color: white; border: none; }
+  }
+  
+  /* 悬停 (hover) 和 焦点 (focus) 状态：底部变成灰色 */
+  .menu-link:hover,
+  .menu-link:focus {
+    border-bottom-color: grey;
+  }
+  
+  /* 选中 (active) 状态：文字黑色，底部边框黑色 */
+  .menu-link.active {
+    color: black;
+    border-bottom-color: black;
+  }
+
+
+  .flash {
+    margin: 1em 0;
+    padding: 1em;
+    background: #cae6f6;
+    border: 1px solid #377ba8;
+  }
+  

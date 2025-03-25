@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="mb-4">Upcoming Events</h1>
 <ul class="list-group">
   <li class="list-group-item"><a href="{{ url_for('events.geopolitics') }}"> Geopolitical Future Outlook</a></li>
   <li class="list-group-item"><a href="{{ url_for('events.macro') }}"> Macro Future Outlook</a></li>
   <li class="list-group-item"><a href="{{ url_for('events.recap') }}"> Last Week's Macro Recap</a></li>
-  <a href="{{ url_for('index') }}" class="btn btn-secondary mt-4">← Back</a>
 </ul>
+<div class="d-flex justify-content-center">
+<a href="{{ url_for('index') }}" class="btn btn-secondary mt-4 mb-5">← Back</a>
+</div>
 {% endblock %}
