@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="mb-4">Macro Future Outlook</h1>
+<h3 class="mb-4 mt-4"> Macro Future Outlook</h3>
 <div class="list-group">
   {% for m in macro_data %}
     <div class="list-group-item">
@@ -9,5 +9,7 @@
     </div>
   {% endfor %}
 </div>
-<a href="{{ url_for('index') }}" class="btn btn-secondary mt-4">← Back</a>
+<div class="d-flex justify-content-center">
+<a href="{{ url_for('events.index') }}" class="btn btn-secondary mt-4 mb-5">← Back</a>
+</div>
 {% endblock %}

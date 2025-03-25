@@ -5,7 +5,7 @@ bp = Blueprint('events', __name__, url_prefix='/events')
 
 @bp.route('/')
 def index():
-    return render_template('events/index.html')
+    return render_template('events/index.html',active_page='events')
 
 @bp.route('/geopolitics')
 def geopolitics():
