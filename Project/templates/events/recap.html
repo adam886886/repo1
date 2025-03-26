@@ -1,14 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 <h3 class="mb-4 mt-4"> Last Week's Macro Recap</h3>
-<div class="list-group">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Country</th>
+      <th>Event</th>
+      <th>Actual</th>
+      <th>Expected</th>
+      <th>Previous</th>
+    </tr>
+  </thead>
+</tbody>
   {% for r in recap_data %}
-    <div class="list-group-item">
-      <strong>{{ r['date'] }} {{ r['time'] }}</strong> – {{ r['country'] }} – {{ r['event'] }}<br>
-      <small>Actual={{ r['actual'] }}, Expected={{ r['expected'] }}, Previous={{ r['previous'] }}</small>
-    </div>
+  <tr>
+    <td>{{ r['date'] }}</td>
+    <td>{{ r['time'] }}</td>
+    <td>{{ r['country'] }}</td>
+    <td>{{ r['event'] }}</td>
+    <td>{{ r['actual'] }}</td>
+    <td>{{ r['expected'] }}</td>
+    <td>{{ r['previous'] }}</td>
+  </tr>
   {% endfor %}
-</div>
+</tbody>
+</table>
+
 <div class="d-flex justify-content-center">
 <a href="{{ url_for('events.index') }}" class="btn btn-secondary mt-4 mb-5">← Back</a>
 </div>

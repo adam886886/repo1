@@ -1,15 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="mb-4 mt-4"> Macro Future Outlook</h3>
-<div class="list-group">
-  {% for m in macro_data %}
-    <div class="list-group-item">
-      <strong>{{ m['reference_date'] }}</strong> – {{ m['country_code'] }} – {{ m['event_name'] }}<br>
-      <small>Latest={{ m['latest_value'] }}, Expected={{ m['expected_value'] }}, Previous={{ m['previous_value'] }}</small>
-    </div>
-  {% endfor %}
-</div>
+<h3 class="mb-4 mt-4">Macro Future Outlook</h3>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Country</th>
+      <th>Event</th>
+      <th>Latest</th>
+      <th>Expected</th>
+      <th>Previous</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in macro_data %}
+    <tr>
+      <td>{{ m['reference_date'] }}</td>
+      <td>{{ m['country_code'] }}</td>
+      <td>{{ m['event_name'] }}</td>
+      <td>{{ m['latest_value'] }}</td>
+      <td>{{ m['expected_value'] }}</td>
+      <td>{{ m['previous_value'] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 <div class="d-flex justify-content-center">
-<a href="{{ url_for('events.index') }}" class="btn btn-secondary mt-4 mb-5">← Back</a>
+  <a href="{{ url_for('events.index') }}" class="btn btn-secondary mt-4 mb-5">← Back</a>
 </div>
 {% endblock %}
